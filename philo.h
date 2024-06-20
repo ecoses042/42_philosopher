@@ -17,7 +17,7 @@ typedef struct s_data{
     int p_sleep_time;
     int p_rep;
 }t_data;
-
+ 
 //input_error
 bool is_valid_char_input(const char **av);
 //utility
