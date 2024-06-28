@@ -1,11 +1,11 @@
 #include "../philo.h"
 
-bool is_valid_char_input(const char **av)
+bool is_valid_char_input(char **av)
 {
     int i;
     int j;
 
-    i = 0;
+    i = 1;
     while (av[i])
     {
         j = 0;

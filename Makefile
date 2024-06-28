@@ -7,7 +7,11 @@ NAME = philo
 
 # Source files
 SRC = main.c\
-	input_error/is_int_range.c\
+	utility/atoi.c\
+	input_error/check_char.c\
+	init_data/init_philo.c\
+	extreme_case/case_1.c\
+
 	
 
 # Object files
