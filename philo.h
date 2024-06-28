@@ -13,6 +13,7 @@
 typedef struct s_data;
 
 typedef struct s_phil{
+    int id;
     struct s_data *data;
     pthread_t thread_phil;
     bool eat_status;

@@ -14,6 +14,7 @@ bool init_mutex(t_data *info)
     while (++i < info->p_num)
     {
         info->phil[i].data = info;
+        info->phil[i].id = i;
         if (pthread_mutex_init(&info->forks[i], NULL))
             return (false);
     }

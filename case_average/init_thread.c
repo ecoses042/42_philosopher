@@ -6,6 +6,7 @@
 //reset death timer
 //if status is eat, sleep for required time, change status to sleep
 //think for a set amount of time and if fork is not available, think for some more
+//think->check death->fork->eat->check->sleep->think
 void *phil_action(void *ptr)
 {
     
