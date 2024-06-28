@@ -37,7 +37,7 @@ typedef struct s_data{
     pthread_mutex_t *forks;
     pthread_mutex_t print;
 }t_data;
-
+ 
 //input_error
 bool is_valid_char_input(char **av);
 //utility

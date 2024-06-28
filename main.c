@@ -15,7 +15,8 @@ int main(int ac, char **av)
     if (!init_mutex(&info))
         printf("mutex allocation failed\n");
         //return (1);
-    
+    if (!init_thread(&info))
+        printf("operation error\n");
     //ft_exit();
         
     return (0);
