@@ -7,19 +7,14 @@
 //if status is eat, sleep for required time, change status to sleep
 //think for a set amount of time and if fork is not available, think for some more
 //think->check death->fork->eat->check->sleep->think
-void *phil_action(void *ptr)
+void *routine(void *ptr)
 {
-    t_phil *phil;
 
-    phil = (t_phil*)ptr;
-    //reset death timer
-    while (!phil->dead)
-    {
-        //set status think
-        //logic for thinking
-        //compare death timer and eating time
-        //
-    }
+}
+
+void *monitor(void *ptr)
+{
+
 }
 
 //sudo code for init_thread
@@ -30,17 +25,24 @@ void *phil_action(void *ptr)
 bool init_thread(t_data *info)
 {
     int i;
+    pthread_t view;
 
-    i = 0;
-    while (++i <= info->p_num || info->dead == true)
+    i = -1;
+    if (info->p_rep > 0)
     {
-        info->phil->left_fork = &info->forks[i];
-        info->phil->right_fork = &info->forks[(i%info->p_num)- 1];
-        if (pthread_create(&info->phil[i].thread_phil, NULL, phil_action, &info->phil[i]))
+        if (pthread_create(&view, NULL, &monitor, info->phils[0]))
             return (print_error(THREAD_FAIL, info));
     }
-    i = 0;
-    while (++i <= info->p_num)
-        pthread_join(info->phil[i].thread_phil, NULL);
+    while (++i < info->p_num)
+    {
+        if (pthread_create(&info->thds[i], NULL, &routine, info->phils[i]))
+            return (print_error(THREAD_FAIL, info));
+    }
+    i = -1;
+    while (++i < info->p_num)
+    {
+        if (pthread_join(&info->thds[i], NULL))
+            return (print_error(THREAD_JOIN, info));
+    }
     return (true);
 }

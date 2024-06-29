@@ -14,6 +14,7 @@
 #define INVALUD_INPUT2 "Invalid input."
 #define MUTEXALLOC_FAIL "Failed allocating mutex."
 #define THREAD_FAIL "failed allocating threads"
+#define THREAD_JOIN "failed connecting to main thread"
 
 #define SLEEP "is sleeping"
 #define EAT "is eating"
@@ -26,7 +27,6 @@ typedef struct s_data;
 typedef struct s_phil{
     int id;
     struct s_data *data;
-    pthread_t thread_phil;
     bool eat_status;
     bool think_status;
     bool sleep_status;
@@ -38,7 +38,8 @@ typedef struct s_phil{
 } t_phil;
 
 typedef struct s_data{
-    t_phil *phil;
+    pthread_t *phils;
+    t_phil *thds;
     int p_num;
     int p_die_time;
     int p_eat_time;
