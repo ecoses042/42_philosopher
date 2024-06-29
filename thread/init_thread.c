@@ -9,7 +9,17 @@
 //think->check death->fork->eat->check->sleep->think
 void *phil_action(void *ptr)
 {
-    
+    t_phil *phil;
+
+    phil = (t_phil*)ptr;
+    //reset death timer
+    while (!phil->dead)
+    {
+        //set status think
+        //logic for thinking
+        //compare death timer and eating time
+        //
+    }
 }
 
 //sudo code for init_thread
@@ -27,7 +37,7 @@ bool init_thread(t_data *info)
         info->phil->left_fork = &info->forks[i];
         info->phil->right_fork = &info->forks[(i%info->p_num)- 1];
         if (pthread_create(&info->phil[i].thread_phil, NULL, phil_action, &info->phil[i]))
-            return (false);
+            return (print_error(THREAD_FAIL, info));
     }
     i = 0;
     while (++i <= info->p_num)

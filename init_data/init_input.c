@@ -15,11 +15,11 @@ bool init_data(t_data *info, int ac,char **av)
     info->current_rep = 0;
     if (info->p_die_time < 0 || info->p_eat_time < 0 
     || info->p_num <= 0 || info->p_sleep_time < 0 || info->p_num > 200)
-        return (false);
+        return print_error(INVALUD_INPUT2, NULL);
     return (true);
 }
 
-bool init_whole(t_data *info, int ac, char **av)
+bool init_arg(t_data *info, int ac, char **av)
 {
     if (!init_data(info,ac,av))
         return (false);

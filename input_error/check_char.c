@@ -12,7 +12,7 @@ bool is_valid_char_input(char **av)
         while (av[i][j])
         {
             if (av[i][j] < 48 || av[i][j] > 57)
-                return false;
+                return print_error(INVALUD_INPUT, NULL);
             j++;
         }
         i++;
