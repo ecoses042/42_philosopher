@@ -1,18 +1,19 @@
 #include "../philo.h"
 
-void action_print(char *str, t_phil phil)
+void action_print(char *str, t_phil *phil)
 {
-    int time;
+    int current_time;
 
-    
+    current_time = get_time() - phil->data->start_time;
+    printf("%d %d %s", current_time,phil->id, str);   
 }
 
 //update the death timer of phil
 //if death, print death and return true
 //if not, return false
-bool action_sleep()
+void action_sleep()
 {
-
+    
 }
 
 //update the death timer of phil

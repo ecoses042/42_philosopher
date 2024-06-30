@@ -10,10 +10,11 @@ int main(int ac, char **av)
         return (1);
     if (!init_arg(&info, ac, av))
         return (1);
-    if (!init_mutex(&info))
+    if (!init_whole(&info))
         return (1);
-    if (!init_thread(&info))
-        return (1);
-    ft_exit(&info);
+    //if (!init_thread(&info))
+        //return (1);
+    //ft_exit(&info);
+    dump(&info);
     return (0);
 }

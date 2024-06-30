@@ -7,11 +7,19 @@ NAME = philo
 
 # Source files
 SRC = main.c\
-	utility/atoi.c\
+	action/action.c\
+	init_data/init_input.c\
+	init_data/init_mutex.c\
 	input_error/check_char.c\
-	init_data/init_philo.c\
-	extreme_case/case_1.c\
-
+	print/print_error.c\
+	print/print_status.c\
+	thread/case_1.c\
+	thread/init_thread.c\
+	utility/atoi.c\
+	utility/exit.c\
+	utility/find_left_fork.c\
+	utility/get_time.c\
+	debug.c
 	
 
 # Object files

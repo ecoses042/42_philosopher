@@ -1,5 +1,6 @@
 #include "../philo.h"
 
+//this function will return current time in milisecond.
 int	get_time(void)
 {
 	struct timeval	tv;

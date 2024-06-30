@@ -13,9 +13,10 @@ bool init_data(t_data *info, int ac,char **av)
         info->p_rep = -1;
     info->dead = false;
     info->current_rep = 0;
+    info->start_time = 0;
     if (info->p_die_time < 0 || info->p_eat_time < 0 
     || info->p_num <= 0 || info->p_sleep_time < 0 || info->p_num > 200)
-        return print_error(INVALUD_INPUT2, NULL);
+        return (false);
     return (true);
 }
 

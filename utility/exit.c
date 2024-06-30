@@ -2,10 +2,12 @@
 
 void ft_free(t_data *info)
 {
-    if (info->phil)
-        free(info->phil);
+    if (info->phils)
+        free(info->phils);
     if (info->forks)
         free(info->forks);
+    if (info->thds)
+        free(info->thds);
 }
 
 void ft_exit(t_data *info)
