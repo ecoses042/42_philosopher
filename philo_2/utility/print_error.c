@@ -1,7 +1,7 @@
 #include "../philosopher.h"
 
-bool print_error(char *str)
+bool	print_error(char *str)
 {
-    printf("%s\n",str);
-    return (false);
+	printf("%s\n", str);
+	return (false);
 }

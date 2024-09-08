@@ -1,6 +1,6 @@
 # Compiler and flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 # Name of the output executable
 NAME = philo
@@ -16,8 +16,11 @@ SRC = main.c\
 	manage_input/init_philo.c\
 	manage_input/manage_thread.c\
 	utility/check_status.c\
-	debug.c\
-
+	utility/action.c\
+	utility/ft_one_phil.c\
+	utility/monitor.c\
+	utility/action_util.c\
+	
 # Object files
 OBJ = $(SRC:.c=.o)
 

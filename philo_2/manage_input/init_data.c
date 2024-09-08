@@ -23,7 +23,7 @@ bool	data_mutex_destroy(t_data	*info, int mode, char *msg)
 		free(info->phils);
 	}
 	if (msg)
-		return	(print_error(msg));
+		return (print_error(msg));
 	return (false);
 }
 
@@ -38,6 +38,14 @@ bool	ft_init_info_mutex(t_data *info)
 	return (true);
 }
 
+void	init_loop(int ac, char **av, t_data *info)
+{
+	if (ac == 6)
+		info->t_rep = ft_atoi(av[5]);
+	else
+		info->t_rep = INIT_LOOP_VALUE;
+}
+
 //set basic information about sleep time, death time etc..
 bool	init_info(int ac, char **av, t_data *info)
 {
@@ -47,14 +55,11 @@ bool	init_info(int ac, char **av, t_data *info)
 	info->t_sleep = ft_atoi(av[4]);
 	info->all_eat_count = 0;
 	info->death = 0;
-	if (ac == 6)
-		info->t_rep = ft_atoi(av[5]);
-	else
-		info->t_rep = -42;
+	init_loop(ac, av, info);
 	if (!ft_init_info_mutex(info))
 		return (false);
 	info->phils = malloc(sizeof(t_phil) * info->n_phil);
 	if (!info->phils)
-		return data_mutex_destroy(info, 3, ALLOC_ERR);
-	return (true);	
+		return (data_mutex_destroy(info, 3, ALLOC_ERR));
+	return (true);
 }
